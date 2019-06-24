@@ -29,5 +29,5 @@ setup(
     packages=find_packages(),
     install_requires=['pandas','numpy', 'tabulate', 'numpy', 'pymatgen'],
     entry_points={'console_scripts': [
-                      'param-bonds = vaspanalysis.parambonds:main']},
+                      'parabo = vaspanalysis.parabo:main']},
     )
