@@ -1,3 +1,0 @@
-[console_scripts]
-parabo = vaspanalysis.parabo:main
-
