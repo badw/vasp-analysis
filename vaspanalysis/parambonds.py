@@ -84,7 +84,7 @@ def main():
     df = df.drop_duplicates()     
     df = df.set_index('bond')
     print(t1)   
-    print(tabulate(df,headers='keys',tablefmt='psql'))
+    print(tabulate(df,headers='keys',tablefmt='psql', numalign="center"))
 
 
 if __name__ == "__main__":
