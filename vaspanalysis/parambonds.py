@@ -29,8 +29,8 @@ def main():
     df1 = pd.DataFrame(columns=['parameter', 'value']) 
 
     a = pdict['lattice']['a']
-    b = pdict['lattice']['a']
-    c = pdict['lattice']['a']
+    b = pdict['lattice']['b']
+    c = pdict['lattice']['c']
     alpha = pdict['lattice']['alpha']
     beta = pdict['lattice']['beta']
     gamma = pdict['lattice']['gamma']
