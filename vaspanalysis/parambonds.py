@@ -17,6 +17,8 @@ def main():
                         help='how many decimal places to round the data to (default = 2) ')
     parser.add_argument('-x', '--excel', default=False, action='store_true',
                         help='output data to a .csv file to import to Microsoft Excel')
+    parser.add_argument('-l', '--latex', default=False, action='store_true',
+                        help='output data to a latex table to import to put into a .tex file')
     args = parser.parse_args()
     
     poscar = Structure.from_file(args.file)
@@ -97,6 +99,12 @@ def main():
         df1.to_csv('cell-parameters.csv',index=True,header=True)
         df2.to_csv('bond-lengths.csv',index=True, header=True)
         print("output saved to cell-parameters.csv and bond-lengths.csv")
+    
+    if args.latex == True:
+        with open('parameters.tex', 'w') as file:
+            file.write(df1.to_latex(index=True))
+            file.write(df2.to_latex(index=True))
+            print("latex output saved to parameters.tex")
 
 if __name__ == "__main__":
     main()
