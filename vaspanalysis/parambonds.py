@@ -32,44 +32,44 @@ def main():
     volume = pdict['lattice']['volume']
     
     if a == b and b == c:
-        t1.add_row(['a = b = c / Å', round(a,2)])
+        t1.add_row(['a = b = c / Angst', round(a,2)])
     elif a == b and b != c:
-        t1.add_row(['a = b / Å', round(a,2)])
-        t1.add_row(['c / Å', round(c,2)])
+        t1.add_row(['a = b / Angst', round(a,2)])
+        t1.add_row(['c / Angst', round(c,2)])
     elif a == c and b != a:
-        t1.add_row(['a = c / Å', round(a,2)])
-        t1.add_row(['b / Å', round(b,2)])
+        t1.add_row(['a = c / Angst', round(a,2)])
+        t1.add_row(['b / Angst', round(b,2)])
     elif a != b and b == c:
-        t1.add_row(['a  / Å', round(a,2)])
-        t1.add_row(['b = c / Å', round(b,2)])
+        t1.add_row(['a  / Angst', round(a,2)])
+        t1.add_row(['b = c / Angst', round(b,2)])
     elif a != b and b != c:
-        t1.add_row(['a / Å', round(a,2)])
-        t1.add_row(['b / Å', round(b,2)])
-        t1.add_row(['c / Å', round(c,2)])
+        t1.add_row(['a / Angst', round(a,2)])
+        t1.add_row(['b / Angst', round(b,2)])
+        t1.add_row(['c / Angst', round(c,2)])
         
     if alpha == beta and beta == gamma:
-        t1.add_row(['α = β = γ / º', round(alpha,2)])
+        t1.add_row(['α = β = γ / deg', round(alpha,2)])
     elif alpha == beta and beta != gamma:
-        t1.add_row(['α = β/ º', round(alpha,2)])
-        t1.add_row(['γ / º', round(gamma,2)])
+        t1.add_row(['α = β / deg', round(alpha,2)])
+        t1.add_row(['γ / deg', round(gamma,2)])
     elif alpha == gamma and beta != gamma:
-        t1.add_row(['α = γ / º', round(alpha,2)])
-        t1.add_row(['β / º', round(beta,2)])
+        t1.add_row(['α = γ / deg', round(alpha,2)])
+        t1.add_row(['β / deg', round(beta,2)])
     elif a != b and b == c:
-        t1.add_row(['α / º', round(alpha,2)])
-        t1.add_row(['β = γ/ º', round(beta,2)])
+        t1.add_row(['α / deg', round(alpha,2)])
+        t1.add_row(['β = γ/ deg', round(beta,2)])
     elif alpha != beta and beta != gamma:
-        t1.add_row(['α / º', round(alpha,2)])
-        t1.add_row(['β / º', round(beta,2)])
-        t1.add_row(['γ / º', round(gamma,2)])
+        t1.add_row(['α / deg', round(alpha,2)])
+        t1.add_row(['β / deg', round(beta,2)])
+        t1.add_row(['γ / deg', round(gamma,2)])
         
-    t1.add_row(['Vol. /Å^3', round(volume,2)])
+    t1.add_row(['Vol. / Angst^3', round(volume,2)])
     
     '''Table of Bond lengths'''
     
     p = combinations(range(atoms),2)
     
-    df = pd.DataFrame(columns=['bond', 'length / Å'])
+    df = pd.DataFrame(columns=['bond', 'length / Angst'])
     
     for elements in p:
         i = elements[0] 
@@ -79,7 +79,7 @@ def main():
             sitei = psites[i]['label']
             sitej = psites[j]['label']
             if sitei != sitej:
-                df = df.append({'bond' : '{}-{}'.format(sitei,sitej), 'length / Å' : dist},ignore_index=True)
+                df = df.append({'bond' : '{}-{}'.format(sitei,sitej), 'length / Angst' : dist},ignore_index=True)
     
     df = df.drop_duplicates()     
     df = df.set_index('bond')
