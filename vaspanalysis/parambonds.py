@@ -1,6 +1,6 @@
-#!/usr/bin/env python3
 import sys
 import argparse
+
 import numpy as np
 import pandas as pd
 from itertools import combinations

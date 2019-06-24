@@ -27,7 +27,7 @@ setup(
         ],
     keywords='chemistry pymatgen physics dft vasp',
     packages=find_packages(),
-    install_requires=['pandas','numpy', 'tabulate', 'itertools', 'numpy', 'pymatgen', 'prettytable'],
+    install_requires=['pandas','numpy', 'tabulate', 'numpy', 'pymatgen', 'prettytable'],
     entry_points={'console_scripts': [
-                      'param-bonds = vasp-analysis.param-bonds:main']},
+                      'param-bonds = vaspanalysis.parambonds:main']},
     )
