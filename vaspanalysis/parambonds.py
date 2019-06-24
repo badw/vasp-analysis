@@ -24,7 +24,7 @@ def main():
     psites = pdict['sites'] 
     atoms = len(psites)
   
-  ''' Table Structural Parameters ''' 
+    ''' Table Structural Parameters ''' 
     
     df1 = pd.DataFrame(columns=['parameter', 'value']) 
 
