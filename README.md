@@ -24,7 +24,7 @@ b) a list of bond lengths (in Å)
 
 simply run:
 ```
-param-bonds (-f POSCARFILE)
+parabo (-f POSCARFILE)
 ```
 options for:
 

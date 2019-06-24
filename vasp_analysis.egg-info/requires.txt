@@ -1,0 +1,5 @@
+pandas
+numpy
+tabulate
+numpy
+pymatgen
