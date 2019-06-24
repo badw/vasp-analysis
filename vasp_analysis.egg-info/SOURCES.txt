@@ -1,0 +1,8 @@
+README.md
+setup.py
+vasp_analysis.egg-info/PKG-INFO
+vasp_analysis.egg-info/SOURCES.txt
+vasp_analysis.egg-info/dependency_links.txt
+vasp_analysis.egg-info/entry_points.txt
+vasp_analysis.egg-info/requires.txt
+vasp_analysis.egg-info/top_level.txt

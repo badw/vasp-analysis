@@ -14,6 +14,8 @@ def main():
                         help='path to input file')
     parser.add_argument('-c', '--cutoff', default=4, type=float,
                         help='nearest neighbour radius cutoff (default 3Å)')
+    parser.add_argument('-x', '--excel', default=False, action='store_true',
+                        help='output data to a .csv file to import to Microsoft Excel')
     args = parser.parse_args()
     
     poscar = Structure.from_file(args.file)
@@ -86,6 +88,8 @@ def main():
     print(t1)   
     print(tabulate(df,headers='keys',tablefmt='psql', numalign="center"))
 
-
+    if args.excel == True:
+        df.to_csv('bond-lengths.csv',index=True, header=True)
+        print("output saved to bond-lengths.csv")
 if __name__ == "__main__":
     main()

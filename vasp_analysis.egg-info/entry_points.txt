@@ -1,0 +1,3 @@
+[console_scripts]
+param-bonds = vaspanalysis.parambonds:main
+
