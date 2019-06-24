@@ -12,7 +12,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('-f', '--file', type=str, default='POSCAR',
                         help='path to input file')
-    parser.add_argument('-c', '--cutoff', default=3, type=float,
+    parser.add_argument('-c', '--cutoff', default=4, type=float,
                         help='nearest neighbour radius cutoff (default 3Å)')
     args = parser.parse_args()
     
