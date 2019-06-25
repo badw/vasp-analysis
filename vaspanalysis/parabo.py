@@ -18,7 +18,7 @@ def main():
     parser.add_argument('-x', '--excel', default=False, action='store_true',
                         help='output data to a .csv file to import to Microsoft Excel')
     parser.add_argument('-l', '--latex', default=False, action='store_true',
-                        help='output data to a latex table to import to put into a .tex file')
+                        help='output data to a latex table to put into a .tex file')
     args = parser.parse_args()
     
     poscar = Structure.from_file(args.file)
@@ -92,19 +92,25 @@ def main():
     df1 = df1.set_index('parameter')
     df2 = df2.drop_duplicates()     
     df2 = df2.set_index('bond')
-    print(tabulate(df1,headers='keys',tablefmt='psql', numalign="center"))
-    print(tabulate(df2,headers='keys',tablefmt='psql', numalign="center"))
+
 
     if args.excel == True:
         df1.to_csv('cell-parameters.csv',index=True,header=True)
         df2.to_csv('bond-lengths.csv',index=True, header=True)
+        for files in ['cell-parameters.csv', 'bond-lengths.csv']:
+            with open(files,'r') as file:
+                print(file.read())
         print("output saved to cell-parameters.csv and bond-lengths.csv")
-    
-    if args.latex == True:
+    elif args.latex == True:
+        print(df1.to_latex(index=True))
+        print(df2.to_latex(index=True))
         with open('parameters.tex', 'w') as file:
             file.write(df1.to_latex(index=True))
             file.write(df2.to_latex(index=True))
             print("latex output saved to parameters.tex")
+    else:
+        print(tabulate(df1,headers='keys',tablefmt='psql', numalign="center"))
+        print(tabulate(df2,headers='keys',tablefmt='psql', numalign="center"))
 
 if __name__ == "__main__":
     main()
