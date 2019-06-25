@@ -12,13 +12,13 @@ def main():
     parser.add_argument('-f', '--file', type=str, default='POSCAR',
                         help='path to input file')
     parser.add_argument('-c', '--cutoff', default=4, type=float,
-                        help='nearest neighbour radius cutoff (default 3 Angstroms)')
+                        help='nearest neighbour radius cutoff (default=3Å)')
     parser.add_argument('-d', '--decimal', default=2, type=int,
-                        help='how many decimal places to round the data to (default = 2) ')
+                        help='how many decimal places to round the data to (default=2) ')
     parser.add_argument('-x', '--excel', default=False, action='store_true',
-                        help='output data to a .csv file to import to Microsoft Excel')
+                        help='output data in .csv format to easily paste into Microsofrt Excel')
     parser.add_argument('-l', '--latex', default=False, action='store_true',
-                        help='output data to a latex table to put into a .tex file')
+                        help='output data to a LaTEX table to put into a .tex file')
     args = parser.parse_args()
     
     poscar = Structure.from_file(args.file)
@@ -39,42 +39,42 @@ def main():
     volume = pdict['lattice']['volume']
     
     if a == b and b == c:
-        df1 = df1.append({'parameter' : 'a = b = c / Angst' , 'value' : round(a,args.decimal)},ignore_index=True)
+        df1 = df1.append({'parameter' : 'a = b = c / Å' , 'value' : round(a,args.decimal)},ignore_index=True)
     elif a == b and b != c:
-        df1 = df1.append({'parameter' : 'a = b / Angst' , 'value' : round(a,args.decimal)},ignore_index=True)
-        df1 = df1.append({'parameter' : 'c / Angst' , 'value' : round(c,args.decimal)},ignore_index=True)
+        df1 = df1.append({'parameter' : 'a = b / Å' , 'value' : round(a,args.decimal)},ignore_index=True)
+        df1 = df1.append({'parameter' : 'c / Å' , 'value' : round(c,args.decimal)},ignore_index=True)
     elif a == c and b != a:
-        df1 = df1.append({'parameter' : 'a = c / Angst' , 'value' : round(a,args.decimal)},ignore_index=True)
-        df1 = df1.append({'parameter' : 'b / Angst' , 'value' : round(b,args.decimal)},ignore_index=True)
+        df1 = df1.append({'parameter' : 'a = c / Å' , 'value' : round(a,args.decimal)},ignore_index=True)
+        df1 = df1.append({'parameter' : 'b / Å' , 'value' : round(b,args.decimal)},ignore_index=True)
     elif a != b and b == c:
-        df1 = df1.append({'parameter' : 'a / Angst' , 'value' : round(a,args.decimal)},ignore_index=True)
-        df1 = df1.append({'parameter' : 'b = c/ Angst' , 'value' : round(b,args.decimal)},ignore_index=True)
+        df1 = df1.append({'parameter' : 'a / Å' , 'value' : round(a,args.decimal)},ignore_index=True)
+        df1 = df1.append({'parameter' : 'b = c/ Å' , 'value' : round(b,args.decimal)},ignore_index=True)
     elif a != b and b != c:
-        df1 = df1.append({'parameter' : 'a / Angst' , 'value' : round(a,args.decimal)},ignore_index=True)
-        df1 = df1.append({'parameter' : 'b / Angst' , 'value' : round(b,args.decimal)},ignore_index=True)
-        df1 = df1.append({'parameter' : 'c / Angst' , 'value' : round(c,args.decimal)},ignore_index=True)
+        df1 = df1.append({'parameter' : 'a / Å' , 'value' : round(a,args.decimal)},ignore_index=True)
+        df1 = df1.append({'parameter' : 'b / Å' , 'value' : round(b,args.decimal)},ignore_index=True)
+        df1 = df1.append({'parameter' : 'c / Å' , 'value' : round(c,args.decimal)},ignore_index=True)
         
     if alpha == beta and beta == gamma:
-        df1 = df1.append({'parameter' : 'alph = bet = gam  / deg' , 'value' : round(alpha,args.decimal)},ignore_index=True)
+        df1 = df1.append({'parameter' : 'alpha = beta = gamma  / o' , 'value' : round(alpha,args.decimal)},ignore_index=True)
     elif alpha == beta and beta != gamma:
-        df1 = df1.append({'parameter' : 'alph = bet / deg' , 'value' : round(alpha,args.decimal)},ignore_index=True)
-        df1 = df1.append({'parameter' : 'gam / deg' , 'value' : round(gamma,args.decimal)},ignore_index=True)
+        df1 = df1.append({'parameter' : 'alpha = beta / o' , 'value' : round(alpha,args.decimal)},ignore_index=True)
+        df1 = df1.append({'parameter' : 'gamma / o' , 'value' : round(gamma,args.decimal)},ignore_index=True)
     elif alpha == gamma and beta != gamma:
-        df1 = df1.append({'parameter' : 'alph = gam / deg' , 'value' : round(alpha,args.decimal)},ignore_index=True)
-        df1 = df1.append({'parameter' : 'beta / deg' , 'value' : round(beta,args.decimal)},ignore_index=True)
+        df1 = df1.append({'parameter' : 'alpha = gamma / o' , 'value' : round(alpha,args.decimal)},ignore_index=True)
+        df1 = df1.append({'parameter' : 'beta / o' , 'value' : round(beta,args.decimal)},ignore_index=True)
     elif a != b and b == c:
-        df1 = df1.append({'parameter' : 'alph / deg' , 'value' : round(alpha,args.decimal)},ignore_index=True)
-        df1 = df1.append({'parameter' : 'beta = gam / deg' , 'value' : round(beta,args.decimal)},ignore_index=True)
+        df1 = df1.append({'parameter' : 'alpha / o' , 'value' : round(alpha,args.decimal)},ignore_index=True)
+        df1 = df1.append({'parameter' : 'beta = gamma / o' , 'value' : round(beta,args.decimal)},ignore_index=True)
     elif alpha != beta and beta != gamma:
-        df1 = df1.append({'parameter' : 'alph / deg' , 'value' : round(alpha,args.decimal)},ignore_index=True)
-        df1 = df1.append({'parameter' : 'beta / deg' , 'value' : round(beta,args.decimal)},ignore_index=True)
-        df1 = df1.append({'parameter' : 'gam / deg' , 'value' : round(gamma,args.decimal)},ignore_index=True)
+        df1 = df1.append({'parameter' : 'alpha / o' , 'value' : round(alpha,args.decimal)},ignore_index=True)
+        df1 = df1.append({'parameter' : 'beta / o' , 'value' : round(beta,args.decimal)},ignore_index=True)
+        df1 = df1.append({'parameter' : 'gamma / o' , 'value' : round(gamma,args.decimal)},ignore_index=True)
        
-    df1 = df1.append({'parameter' : 'Vol. / Angst^3', 'value' : round(volume,args.decimal)},ignore_index=True)
+    df1 = df1.append({'parameter' : 'Vol. / Å^3', 'value' : round(volume,args.decimal)},ignore_index=True)
     
     '''Table of Bond lengths'''
     
-    df2 = pd.DataFrame(columns=['bond', 'length / Angst'])
+    df2 = pd.DataFrame(columns=['bond', 'length / Å'])
     
     p = combinations(range(atoms),2)
     
@@ -86,28 +86,19 @@ def main():
             sitei = psites[i]['label']
             sitej = psites[j]['label']
             if sitei != sitej:
-                df2 = df2.append({'bond' : '{}-{}'.format(sitei,sitej), 'length / Angst' : dist},ignore_index=True)
+                df2 = df2.append({'bond' : '{}-{}'.format(sitei,sitej), 'length / Å' : dist},ignore_index=True)
     
     df1 = df1.drop_duplicates()
     df1 = df1.set_index('parameter')
     df2 = df2.drop_duplicates()     
     df2 = df2.set_index('bond')
 
-
     if args.excel == True:
-        df1.to_csv('cell-parameters.csv',index=True,header=True)
-        df2.to_csv('bond-lengths.csv',index=True, header=True)
-        for files in ['cell-parameters.csv', 'bond-lengths.csv']:
-            with open(files,'r') as file:
-                print(file.read())
-        print("output saved to cell-parameters.csv and bond-lengths.csv")
+        print(df1.to_csv(index=True,header=True))
+        print(df2.to_csv(index=True,header=True))
     elif args.latex == True:
         print(df1.to_latex(index=True))
         print(df2.to_latex(index=True))
-        with open('parameters.tex', 'w') as file:
-            file.write(df1.to_latex(index=True))
-            file.write(df2.to_latex(index=True))
-            print("latex output saved to parameters.tex")
     else:
         print(tabulate(df1,headers='keys',tablefmt='psql', numalign="center"))
         print(tabulate(df2,headers='keys',tablefmt='psql', numalign="center"))
