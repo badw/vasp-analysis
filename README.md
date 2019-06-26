@@ -30,8 +30,8 @@ options for:
 
 * changing the cutoff distance for the bond lengths with `-c` (current cutoff is 4 Angstroms)
 * changing the accuracy to the next decimal place with `-d`
-* output a `.csv` with `-x` file to easily import into Microsoft Excel
-* output the data into a latex table format with `-l` (makes a parameters.tex file)
+* output data as `.csv` with `-x` to easily import into Microsoft Excel ([Excel]/Data/Text to Columns)
+* output the data into a latex table format with `-l` 
 
 
 #### Acknowledgements:
