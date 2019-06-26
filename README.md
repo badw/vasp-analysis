@@ -33,6 +33,11 @@ options for:
 * output a `.csv` with `-x` file to easily import into Microsoft Excel
 * output the data into a latex table format with `-l` (makes a parameters.tex file)
 
+
+#### Acknowledgements:
+
+`parabo` uses pymatgen, numpy and pandas
+
 > #### TODO:
 
 > - [ ] get bond lengths of a specific atom
@@ -41,8 +46,4 @@ options for:
 
 > tidyup:
 > - [ ] make nicer LaTEX tables
-
-#### Acknowledgements:
-
-`parabo` uses pymatgen, numpy and pandas
 
