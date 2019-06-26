@@ -1,7 +1,7 @@
 # vasp-analysis
 This is mostly an area for me (BADW) to learn python - but also make something useful out of it.
 
-###setup
+### setup
 
 simply run:
 ``` 
@@ -34,11 +34,11 @@ options for:
 * output the data into a latex table format with `-l` 
 
 
-#### Acknowledgements:
+#### acknowledgements:
 
 `parabo` uses pymatgen, numpy and pandas
 
-> #### TODO:
+> #### todo
 
 > - [ ] get bond lengths of a specific atom
 > - [ ] compare multiple systems side by side
