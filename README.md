@@ -1,7 +1,7 @@
 # vasp-analysis
 This is mostly an area for me (BADW) to learn python - but also make something useful out of it.
 
-### setup
+###setup
 
 simply run:
 ``` 
@@ -11,7 +11,7 @@ cd ./vasp-analysis
 
 pip3 install --user .
 ```
-### parabo
+## parabo
 this should hopefully give you:
 
 a) a table of cell parameters:
@@ -33,11 +33,16 @@ options for:
 * output a `.csv` with `-x` file to easily import into Microsoft Excel
 * output the data into a latex table format with `-l` (makes a parameters.tex file)
 
-#### TODO:
+> #### TODO:
 
-- [ ] get bond lengths of a specific atom
-- [ ] compare multiple systems side by side
-- [ ] Plot data (of multiple systems) 
+> - [ ] get bond lengths of a specific atom
+> - [ ] compare multiple systems side by side
+> - [ ] Plot data (of multiple systems) 
 
-tidyup:
-- [ ] make nicer LaTEX tables
+> tidyup:
+> - [ ] make nicer LaTEX tables
+
+#### Acknowledgements:
+
+`parabo` uses pymatgen, numpy and pandas
+
